@@ -1,0 +1,14 @@
+<div class="postform">
+  <h2 class="title">Add New Post</h2>
+  <form (ngSubmit)="onAddPost(f)" #f="ngForm">
+    <input ngModel name="title" type="text" placeholder="Post title ..." />
+    <textarea
+      ngModel
+      name="description"
+      cols="20"
+      rows="6"
+      placeholder="Type description here ..."
+    ></textarea>
+    <button type="submit">Add Post</button>
+  </form>
+</div>
