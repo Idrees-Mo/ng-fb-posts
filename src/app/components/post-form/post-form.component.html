@@ -1,6 +1,6 @@
 <div class="postform">
   <h2 class="title">Add New Post</h2>
-  <form (ngSubmit)="onAddPost(f)" #f="ngForm">
+  <form (ngSubmit)="onAddPost(f.value)" #f="ngForm">
     <input ngModel name="title" type="text" placeholder="Post title ..." />
     <textarea
       ngModel

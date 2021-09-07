@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from 'src/app/models/post';
+import { PostsService } from 'src/app/services/posts.service';
 
 @Component({
   selector: 'app-post-form',
@@ -6,11 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-form.component.css'],
 })
 export class PostFormComponent implements OnInit {
-  constructor() {}
+  posts: Post[] = [];
+  constructor(private ps: PostsService) {}
 
   ngOnInit(): void {}
 
-  onAddPost(f: any) {
-    console.log(f.form.value);
+  onAddPost(post: Post) {
+    this.ps.addPost(post).subscribe((data) => {
+      console.log(data);
+    });
   }
 }
