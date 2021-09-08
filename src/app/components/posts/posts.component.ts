@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Post } from 'src/app/models/post';
 import { PostsService } from 'src/app/services/posts.service';
 
@@ -8,13 +9,11 @@ import { PostsService } from 'src/app/services/posts.service';
   styleUrls: ['./posts.component.css'],
 })
 export class PostsComponent implements OnInit {
-  posts: any = [];
+  posts$: Observable<Post[]>;
 
   constructor(private ps: PostsService) {}
 
   ngOnInit(): void {
-    this.ps.fecthPost().subscribe((posts) => {
-      this.posts = posts;
-    });
+    this.posts$ = this.ps.fecthPost();
   }
 }
